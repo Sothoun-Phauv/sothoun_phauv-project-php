@@ -41,12 +41,19 @@
     function updatePost($value){
         $title = $value['title'];
         $short = $value['short'];
-        $image = $value['image'];
+
+        $fileName = $_FILES['image']['name'];
+        $fileSize = $_FILES['image']['size'];
+        $filetype = $_FILES['image']['type'];
+        $tmp_name = $_FILES['image']['tmp_name'];
+        $direct = "../assets/images/";
+        move_uploaded_file($tmp_name,$direct.$fileName);
+
         $description = $value['des'];
         $categoryid = $value['categoryid'];
         $id = $value['post_id'];
         
-        return db()->query("UPDATE post SET title='$title', short ='$short',image = '$image',
+        return db()->query("UPDATE post SET title='$title', short ='$short',image = '$fileName',
         description='$description', categoryid = '$categoryid' WHERE post_id = $id ");
     }
     
@@ -65,7 +72,7 @@
 
     // business
     function business(){
-        return db()-> query("SELECT * FROM post WHERE categoryid = 1");
+        return db()-> query("SELECT * FROM post WHERE categoryid = 1 ORDER BY date DESC");
     }
 
     // khmer
@@ -79,5 +86,42 @@
     }
     
     function getThree(){
-        return db()->query("SELECT * FROM post WHERE categoryid = 3 ORDER BY date LIMIT 3");
+        return db()->query("SELECT * FROM post WHERE categoryid = 3 ORDER BY date DESC LIMIT 3");
+    }
+
+
+    //short by name
+    function newArrived(){
+        return db()->query("SELECT * FROM post ORDER BY date DESC");
+    }
+    function shortName(){
+        return db()->query("SELECT * FROM post ORDER BY title DESC");
+    }
+
+
+    // detail funtion
+    function getOneHome($id) {
+        return db()->query("SELECT * FROM post WHERE post_id = $id");
+    }
+    function getOneKhmer($id) {
+        return db()->query("SELECT * FROM post WHERE categoryid = 4 and post_id = $id");
+    }
+
+    function getOneSport($id) {
+        return db()->query("SELECT * FROM post WHERE categoryid = 2 and post_id = $id");
+    }
+    function getOneBusiness($id){
+        return db()->query("SELECT * FROM post WHERE categoryid = 1 and post_id = $id");
+    }
+    function getOneAgriculture($id){
+        return db()->query("SELECT * FROM post WHERE categoryid = 3 and post_id = $id");
+    }
+
+
+    // search function
+
+    function found($value){
+        
+        $result = $value['search'];
+        return db()->query("SELECT * FROM post WHERE title like '%$result%' ORDER BY date ASC");
     }

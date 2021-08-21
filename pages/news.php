@@ -1,15 +1,15 @@
 <div class="container p-1">
     <div class="card-img mt-5 mb-5">
-        <img src="assets/images/prasac.gif" alt="Please check internet" style="width:100%;">
+        <img src="assets/images/menu.jfif" alt="Please check internet" style="width:100%;">
     </div>
     <div class="mt-3">
-        <button action="none" class="border border-none bg-danger text-white">Business</button>
+        <button action="none" class="border border-none bg-danger text-white">New Arrived</button>
         <small>29mn ago - WOLRD NEWS</small>
     </div>
     <div class="body">
         <?php
             require_once('inc/database.php');
-            $posts = business();
+            $posts = newArrived();
             foreach($posts as $post):
         ?>
         <div class="row p-2">
@@ -21,13 +21,14 @@
                 </div>
                 </div>
             </div>
-            <div class="col-sm-8 mt-2">
+            <div class="col-sm-8 mt-1">
                 <div class="card border border-0">
                 <div class="card-body">
-                    <a href="?page=business_detail&business_id=<?= $post['post_id'] ?>">
+                    <small  class="card-date mb-5"><?= $post['date']?></small>
+                    <a class="" href="?page=business_detail&business_id=<?= $post['post_id'] ?>">
                         <h3 class="card-title"><?= $post['title']?></h3>
                     </a>
-                    <h5 class="card-text"> <?= $post['short']?></h5>
+                    <p class="card-text"> <?= $post['short']?></p>
                 </div>
                 </div>
             </div>

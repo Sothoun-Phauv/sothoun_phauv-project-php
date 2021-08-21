@@ -1,4 +1,4 @@
-<div class="container p-1">
+<div class="container p-1 mt-2">
   <footer class="bg-dark text-center text-white">
     <!-- Grid container -->
     <div class="container p-4 pb-0">

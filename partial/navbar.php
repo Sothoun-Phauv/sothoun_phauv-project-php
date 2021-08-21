@@ -46,18 +46,28 @@
           <a class="nav-link font-weight-bold text-light" href="?page=agriculture" style="font-size:17px;">Agriculture</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-weight-bold text-light" href="?page=about" style="font-size:17px;">About US</a>
+          <!-- <a class="nav-link font-weight-bold text-light" href="?page=about" style="font-size:17px;">About US</a> -->
+          <!-- Example single danger button -->
+        <div class="btn-group">
+          <a type="button" class="btn dropdown-toggle nav-link font-weight-bold text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Short By
+          </a>
+          <div class="dropdown-menu bg-primary">
+            <a class="dropdown-item font-weight-bold" href="?page=news">New Arrived</a>
+            <a class="dropdown-item font-weight-bold" href="?page=new">News Title</a>
+          </div>
+        </div>
         </li>
         <li class="nav-item">
           <a class="nav-link font-weight-bold text-light" href="?page=contact" style="font-size:17px;">Contact US</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fa fa-search" style="font-size:13px"></i></button>
+        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"><i class="fa fa-search" style="font-size:13px"></i></button> -->
         <a href="process/create.php" class="btn btn-danger btn-sm mr-2 ml-2"> <i class="fa fa-arrow-circle-lefts" style="font-size:24px">Add</i></a>
         <!-- Button to Open the Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
           <i class="fa fa-user-circle" aria-hidden="true"></i>
         </button>
 

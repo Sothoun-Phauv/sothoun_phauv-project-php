@@ -18,7 +18,7 @@
             foreach($posts as $post):
 
         ?>
-        <form action="update_model.php" method="post" class="p-5" style="background:#e1e3e1;">
+        <form action="update_model.php" method="post" class="p-5" style="background:#e1e3e1;" enctype ="multipart/form-data">
             <a href="http://localhost/sothoun_phauv-project-php/?page=home" class="btn btn-danger btn-sm mb-3"> <i class="fa fa-arrow-circle-left" style="font-size:24px">Back</i></a>
             <input type="hidden" value = "<?= $post['post_id']?>" name = "post_id">
             <div class="form-group">
@@ -28,11 +28,10 @@
                 <input type="text" class="form-control" value = "<?= $post['short']?>" name="short">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" value = "<?= $post['image']?>" name="image">
+                <input type="file" class="form-control" value = "assets/images<?= $post['image']?>" name="image">
             </div>
             <div class="form-group">
-    
-                <textarea name="des" class="form-control" value="<?= $post['description']?>" cols="10" rows="5"></textarea>
+                <input name="des" class="form-control" value="<?= $post['description']?>" cols="10" rows="5">
             </div>
             <div class="form-group" >
                 <select name = "categoryid" class="form-control">
