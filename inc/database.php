@@ -125,3 +125,64 @@
         $result = $value['search'];
         return db()->query("SELECT * FROM post WHERE title like '%$result%' ORDER BY date ASC");
     }
+
+
+
+    // function user sign up
+
+    function addUser($value){
+        $username = $value['username'];
+        $password = $value['password'];
+        $passEnc = password_hash($password, PASSWORD_DEFAULT);
+        $email = $value['email'];
+
+        $pro_name = $_FILES['profile_img']['name'];
+        $pro_size = $_FILES['profile_img']['size'];
+        $pro_type = $_FILES['profile_img']['type'];
+        $pro_tmp_name = $_FILES['profile_img']['tmp_name'];
+
+        $extension = pathinfo($pro_name, PATHINFO_EXTENSION);
+        $extensionLocal = strtolower($extension);
+        $allowExtension = array('jpg', 'jpeg', 'png','ifif');
+
+        $users = getAllUser();
+        $isMatchEmail = true;
+
+        foreach($users as $user) {
+            if($email == $user['email']) {
+                $isMatchEmail = false;
+            }
+        }
+
+        if($isMatchEmail and in_array($extensionLocal, $allowExtension)) {
+            $newImageName = uniqid("post-", true) . "." . $extensionLocal;
+            $pro_dir = "assets/images/";
+            move_uploaded_file($pro_tmp_name, $pro_dir.$pro_name);
+            return db()->query("INSERT INTO users(username,email,role,user_img, password) VALUES ('$username','$email','User','$newImageName', '$passEnc')");
+
+        }
+        
+
+        
+    }
+
+    // function get all user
+
+    function getAllUser() {
+        return db()->query("SELECT * FROM users");
+    }
+ 
+    // function user login
+    function login($value) {
+        $db = new mysqli('localhost','root','','news');
+        $username = $value['username'];
+        $password = $value['password'];
+        $allUser = $db->query("SELECT password, username FROM users WHERE username = '$username'");
+        $isValid = false;
+        foreach($allUser as $user) {
+            if(password_verify($password, $user['password']) and $username === $user['username']) {
+                $isValid = true;
+            }
+        }
+        return $isValid;
+    }

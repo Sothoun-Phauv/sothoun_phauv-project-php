@@ -34,7 +34,7 @@
         <div class="col-sm-6">
             <div class="card border border-0">
             <div class="card-body ">
-                <img src="assets/images/<?= $post['image']?>" alt="" style="width:100%; height:300px;">
+                <img src="assets/images/<?= $post['image']?>" class="hvr-shrink" style="width:100%; height:300px;">
                 <small><?= $post['date']?></small>
                 <h3 class="card-title text-info"><?= $post['title']?></h3>
                 <h5 class="card-text"><?= $post['short']?></h5>
