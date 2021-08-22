@@ -143,7 +143,7 @@
 
         $extension = pathinfo($pro_name, PATHINFO_EXTENSION);
         $extensionLocal = strtolower($extension);
-        $allowExtension = array('jpg', 'jpeg', 'png','ifif');
+        $allowExtension = array('jpg', 'jpeg', 'png','jfif');
 
         $users = getAllUser();
         $isMatchEmail = true;

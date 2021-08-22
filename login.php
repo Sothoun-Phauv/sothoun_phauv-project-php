@@ -18,8 +18,8 @@
             <div class="text-center">
                 <img src="assets/images/image.png" class="rounded" alt="Please Check the internet" style="width:140px; height:140px">
             </div>
-            <div class="form-group text-center">
-                <h1 style="font-family: 'Times New Roman', Times, serif;">Account Login!</h1>
+            <div class="form-group text-center font-weight-bold">
+                <h1 style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">Account Login!</h1>
             </div>
             <div class="text-center">
                 <small class="text-danger"><?= $message_error ?></small>

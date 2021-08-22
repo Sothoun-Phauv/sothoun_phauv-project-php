@@ -11,7 +11,7 @@
                 if($isAdd) {
                     header("Location: http://localhost/sothoun_phauv-project-php/?page=home");
                 } else {
-                    $message_error = "Your email already exist or Profile image must be JPG JPEG PNG";
+                    $message_error = "Your email already exist or Profile image must be JPG JPEG PNG jfif";
                 }
             }
         ?>
